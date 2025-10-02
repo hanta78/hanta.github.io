@@ -1,0 +1,890 @@
+﻿	/* ==============================================
+	   IMPORT & RESET STYLES
+	============================================== */
+
+	/* Google Fonts */
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+	/* Universal reset */
+	* {
+	  box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  -webkit-box-sizing: border-box;
+	}
+
+	/* Body base */
+	body {
+	  background: #3b5aaa;
+	  color: rgba(40, 40, 40);
+	  line-height: 1.6;
+	  font-family: 'Roboto Slab', sans-serif;
+	  text-align: justify;
+	  margin: 0;
+	}
+
+	/* ==============================================
+	   TYPOGRAPHY
+	============================================== */
+
+	/* Headings */
+	h1, h2, h3, h4 {
+	  font-weight: bold;
+	  margin: 0;
+	}
+
+	h2 {
+	  text-align: center;
+	  font-size: 2em;
+	  line-height: initial;
+	}
+
+	h3 {
+	  font-size: 1.25em;
+	}
+
+	/* Links */
+	a {
+	  color: #3b5aaa;
+	  text-decoration: none;
+	}
+
+	a:hover {
+	  color: white;
+	}
+
+	/* ==============================================
+	   MAIN LAYOUT CONTAINERS
+	============================================== */
+
+	/* Main container */
+	.container {
+	  margin: 0 auto;
+	  padding: 1em;
+	  display: flex;
+	  flex-direction: column;
+	  max-width: 1080px;
+	  height: fit-content;
+	  transform-origin: 50% 50%;
+	  will-change: transform;
+	}
+
+	/* Grid wrapper */
+	.wrapper > * {
+	  padding: 1em;
+	}
+
+	/* Header section */
+	.header {
+	  padding: 0 0 0.5em 0 !important;
+	}
+
+	.brand {
+	  color: #ffffff;
+	  font-weight: bold;
+	  font-size: 1.8em;
+	}
+
+	.note {
+	  margin-top: 1em;
+	  font-size: 0.9em;
+	}
+
+	/* ==============================================
+	   SIDEBAR SECTIONS
+	============================================== */
+
+	/* Disabled sections - Kept as comments for reference
+	.about-company,
+	.contact-info {
+	  display: none !important;
+	}   
+	 */
+	
+	/* About company section */
+	.about-company {
+	  background: #C3C9DD;
+	}
+
+	.about-company h3 {
+	  text-align: center;
+	}
+
+	.about {
+	  font-size: 1em;
+	  color: rgba(40, 40, 40, 0.9);
+	  word-break: break-word;
+	  max-height: 20em;
+	  overflow-y: auto;
+	  scrollbar-color: #C3C9DD #C3C9DD;
+	  scrollbar-width: none;
+	}
+
+	/* Scrollbar styles for about section */
+	.about::-webkit-scrollbar {
+	  width: 0;
+	}
+
+	.about::-webkit-scrollbar-thumb {
+	  background-color: #C3C9DD;
+	  border-radius: 1em;
+	}
+
+	.about::-webkit-scrollbar-track {
+	  background-color: #C3C9DD;
+	  border-radius: 1em;
+	}
+
+	.about::-webkit-scrollbar-thumb:hover {
+	  box-shadow: inset 0 0 0.25em grey;
+	}
+
+	.about::-webkit-scrollbar-track:hover {
+	  background-color: #C3C9DD;
+	}
+
+	/* Contact information section */
+	.contact-info {
+	  background: #C3C9DD;
+	  border-bottom-left-radius: 0.25em;
+	  border-bottom-right-radius: 0.25em;
+	}
+
+	.contact-info h3 {
+	  text-align: center;
+	}
+
+	.contact {
+	  font-size: 1em;
+	  color: #3b5aaa;
+	  word-break: break-word;
+	}
+
+	/* ==============================================
+	   FORM CONTAINER
+	============================================== */
+
+	/* Main form section */
+	.subscribe {
+	  background: #dcdfea;
+	  border-top-left-radius: 0.25em;
+	  border-top-right-radius: 0.25em;
+	}
+
+	.subscribe .subtitle {
+	  text-align: center;
+	  color: rgba(40, 40, 40, 0.7);
+	}
+
+	/* Form grid layout */
+	.subscribe form {
+	  display: grid;
+	  grid-template-columns: 3fr 2fr;
+	  grid-gap: 1em;
+	}
+
+	.subscribe form .full {
+	  grid-column: 1/3;
+	  display: flex;
+	  gap: 1em;
+	}
+
+	/* Disabled form div styles - Kept as comment
+	.subscribe form div {
+	  margin: 0;
+	  min-width: 0;
+	} */
+
+	/* ==============================================
+	   INPUT CONTROLS
+	============================================== */
+
+	/* Base input and select styles */
+	.subscribe form input,
+	.subscribe form select {
+	  width: 100%;
+	  padding: 0.6em;
+	  border: 1px solid #7e7e7e;
+	  border-radius: 0.25em;
+	  color: rgba(40, 40, 40, 0.8) !important;
+	  font-family: inherit;
+	  font-size: 1em;
+	  background-color: white;
+	}
+
+	/* Custom select dropdown arrow */
+	.subscribe form select {
+	  appearance: none;
+	  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path fill="%237e7e7e" d="M0 0h12l-6 6z"/></svg>');
+	  background-repeat: no-repeat;
+	  background-position: right 0.7em top 50%;
+	  background-size: 12px;
+	}
+
+	/* ==============================================
+	   BUTTON STYLES
+	============================================== */
+
+	/* Common button properties */
+	.subscribe form button,
+	.select-files-btn,
+	.select-folders-btn,
+	.clear-all-btn,
+	.remove-btn,
+	.file-upload-remove-btn {
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
+
+	/* Base form buttons */
+	.subscribe form button {
+	  font-family: inherit;
+	  display: block;
+	  cursor: pointer;
+	}
+
+	/* Submit button */
+	.subscribe form button.submit {
+	  color: white;
+	  font-size: 1.25em;
+	  font-weight: bold;
+	  width: 100%;
+	  padding: 0.45em;
+	  border-radius: 0.25em;
+	  border: 2px solid #3b5aaa;
+	  background-color: #4d6ddd;
+	}
+
+	.subscribe form button.submit:hover,
+	.subscribe form button.submit:focus {
+	  background: #3b5aaa;
+	}
+
+	/* Reset button */
+	.subscribe form button.reset {
+	  color: white;
+	  font-size: 1.25em;
+	  font-weight: bold;
+	  width: auto;
+	  min-width: 4.5em;
+	  padding: 0.45em 1em;
+	  border-radius: 0.25em;
+	  border: 2px solid #b91c1c;
+	  background-color: #dc2626;
+	  flex-shrink: 0;
+	}
+
+	.subscribe form button.reset:hover,
+	.subscribe form button.reset:focus {
+	  background: #b91c1c;
+	}
+
+	/* Common button hover effects */
+	.subscribe form button:hover,
+	.subscribe form button:focus {
+	  color: #ffffff;
+	  outline: 0;
+	  transition: background-color 2s ease-out;
+	  box-shadow: 0px 1em 2em -1em rgba(0, 0, 0, 0.6);
+	}
+
+	/* File selection buttons */
+	.select-files-btn,
+	.select-folders-btn {
+	  width: 100%;
+	  padding: 0.5em;
+	  border: 2px solid #6b7280 !important;
+	  border-radius: 0.25em;
+	  background-color: #6b7280 !important;
+	  color: white !important;
+	  font-family: inherit;
+	  font-size: 1em;
+	  font-weight: bold;
+	  cursor: pointer;
+	  transition: background-color 0.2s ease-out !important;
+	}
+
+	.select-files-btn:hover,
+	.select-folders-btn:hover {
+	  background-color: #4b5563 !important;
+	  box-shadow: 0px 1em 2em -1em rgba(0, 0, 0, 0.6) !important;
+	}
+
+/* Small remove buttons */
+.remove-btn,
+.file-upload-remove-btn {
+  color: red;               
+  font-size: 1.5rem;        /* Muốn to nhỏ tùy ý */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  background: none;         
+
+  display: inline-flex;      /* Flexbox inline */
+  align-items: center;       /* Căn giữa theo trục dọc */
+  justify-content: center;   /* Căn giữa theo trục ngang */
+}
+
+.remove-btn:hover,
+.file-upload-remove-btn:hover {
+  transform: scale(1.2);     /* Phóng to nhẹ khi hover */
+  color: darkred !important;   /* ép không bị override */
+  background: none !important;
+}
+
+	/* Clear all button */
+	.clear-all-btn {
+	  font-size: 0.9em;
+	  color: #dc2626;
+	  background: none;
+	  border: none;
+	  cursor: pointer;
+	  padding: 0.2em 0.5em;
+	  border-radius: 0.25em;
+	}
+
+	.clear-all-btn:hover {
+	  color: #b91c1c;
+	  background-color: #f8fafc;
+	}
+
+	/* ==============================================
+	   FILE UPLOAD INTERFACE
+	============================================== */
+
+	/* Drop zone and buttons */
+	.button-zone {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 1em;
+	}
+
+	.drop-zone {
+	  border: 2px dashed #cbd5e1;
+	  text-align: center;
+	  cursor: pointer;
+	  background-color: #f8fafc;
+	  width: 100%;
+	  border-radius: 0.5rem;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	}
+
+	.drop-zone.dragover {
+	  border-color: #3b82f6;
+	  background-color: #eff6ff;
+	}
+
+	.drop-zone-icon {
+	  width: 3rem;
+	  height: 3rem;
+	}
+
+	.drop-zone-text {
+	  color: #9ca3af;
+	  font-size: 0.9em;
+	  padding: 0.9em;
+	}
+
+	/* File list display */
+	.selected-files-header {
+	  font-size: 1em;
+	  font-weight: 600;
+	  color: #374151;
+	  margin-bottom: 0.5em;
+	  width: 100%;
+	}
+
+	.files-list {
+	  max-height: 10rem;
+	  overflow-y: auto;
+	  padding: 0.5em;
+	  background-color: #f8fafc;
+	  width: 100%;
+	  box-sizing: border-box;
+	  border-radius: 0.5em;
+	}
+
+	.files-list-container {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  margin-top: 0.5em;
+	  width: 100%;
+	}
+
+	.files-count {
+	  font-size: 0.9em;
+	  color: #4b5563;
+	}
+
+	/* Individual file item */
+	.file-item {
+	  animation: slideIn 0.3s ease-out;
+	  width: 100%;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  padding: 0.5rem;
+	  border-radius: 0.25rem;
+	  margin-bottom: 0.25rem;
+	}
+
+	.file-item .file-info {
+	  display: flex;
+	  align-items: center;
+	  gap: 0.5rem;
+	  flex: 1;
+	  min-width: 0;
+	}
+
+	.file-item .file-name {
+	  font-size: 0.875rem;
+	  color: #374151;
+	}
+
+	.file-item .file-size {
+	  font-size: 0.75rem;
+	  color: #6b7280;
+	  margin-left: 0.5rem;
+	}
+
+	.file-item .file-icon {
+	  color: #3b82f6;
+	  margin-right: 0.5rem;
+	}
+
+	.file-item .folder-icon {
+	  color: #10b981;
+	  margin-right: 0.5rem;
+	}
+
+	/* ==============================================
+	   FILE TREE STRUCTURE
+	============================================== */
+
+	/* Tree container */
+	.file-upload-tree {
+	  margin-left: 1rem;
+	  padding-left: 1rem;
+	  border-left: 2px dotted #d1d5db;
+	}
+
+	/* Tree items */
+	.file-upload-item {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  border-radius: 0.25rem;
+	  animation: file-upload-slideIn 0.3s ease-out;
+	}
+
+	.file-upload-folder {
+	  flex-direction: column;
+	  align-items: stretch;
+	}
+
+	.file-upload-folder-header {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  width: 100%;
+	  flex-wrap: nowrap;
+	}
+
+	.file-upload-info {
+	  display: flex;
+	  align-items: center;
+	  gap: 0.5em;
+	}
+
+	.file-upload-icon-blue {
+	  color: #3b82f6;
+	}
+
+	.file-upload-icon-green {
+	  color: #10b981;
+	}
+
+	.file-upload-name {
+	  font-size: 0.95em;
+	  font-weight: 500;
+	}
+
+	.file-upload-size {
+	  font-size: 0.75em;
+	  color: #6b7280;
+	}
+
+
+	/* ==============================================
+	   ANIMATIONS
+	============================================== */
+
+	@keyframes slideIn {
+	  from {
+		opacity: 0;
+		transform: translateY(-10px);
+	  }
+	  to {
+		opacity: 1;
+		transform: translateY(0);
+	  }
+	}
+
+	@keyframes file-upload-slideIn {
+	  from {
+		opacity: 0;
+		transform: translateY(-10px);
+	  }
+	  to {
+		opacity: 1;
+		transform: translateY(0);
+	  }
+	}
+
+	@keyframes zoom {
+	  0% {
+		transform: scale(.5);
+		opacity: 0;
+	  }
+	  50% {
+		opacity: 1;
+	  }
+	  to {
+		opacity: 0;
+		transform: scale(1);
+	  }
+	}
+
+	@keyframes lucidgenzalo {
+	  0% to {
+		transform: rotate(-25deg);
+	  }
+	  50% {
+		transform: rotate(25deg);
+	  }
+	}
+
+/* ==============================================
+   RESPONSIVE DESIGN
+============================================== */
+
+/* Mobile layout - maintains v1.0 natural behavior */
+@media (max-width: 639px) {
+  html, body {
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 100%;
+    min-width: 440px;
+    padding: 1em;
+    transform: scale(0.96);
+    transform-origin: center top;
+  }
+
+  h1.brand, h2 {
+    font-size: 1.5em;
+  }
+  
+  .contact-info table {
+    margin: 0 auto;
+  }
+}
+
+/* Desktop layout - grid system */
+@media (min-width: 640px) {
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .wrapper {
+    display: grid;
+    justify-content: center;
+    height: fit-content;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "header header header"
+      "subscribe subscribe about"
+      "subscribe subscribe info";
+  }
+
+  /* Layout without sidebar */
+  .wrapper.no-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "subscribe"
+      "subscribe";
+  }
+
+  .wrapper.no-sidebar .container {
+    max-width: 600px;
+  }
+
+  /* Grid area assignments */
+  .header {
+    grid-area: header;
+  }
+  
+  .about-company {
+    grid-area: about;
+    padding: 2em;
+    border-radius: 0 0.5em 0 0;
+  }
+  
+  .contact-info {
+    grid-area: info;
+    padding: 0 2em 2em 2em;
+    border-radius: 0 0 0.5em 0;
+  }
+  
+  .subscribe {
+    grid-area: subscribe;
+    padding: 2em;
+    border-radius: 0.5em 0 0 0.5em;
+  }
+
+  /* Desktop typography adjustments */
+  .brand {
+    font-size: 2.25em;
+  }
+  
+  .about-company h3,
+  .contact-info h3 {
+    text-align: left;
+  }
+}
+
+	/* ==============================================
+	   MODAL DIALOG
+	============================================== */
+
+	/* Modal overlay */
+	#modal {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: rgba(0, 0, 0, 0.5);
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  z-index: 1000;
+	}
+
+	#modal.hidden {
+	  display: none;
+	}
+
+	/* Modal content */
+	#modal .modal-content {
+	  background-color: white;
+	  padding: 1.5rem;
+	  border-radius: 0.5rem;
+	  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	  max-width: 24rem;
+	  width: 100%;
+	  margin: 1rem;
+	}
+
+	#modalTitle {
+	  font-size: 1.125rem;
+	  font-weight: bold;
+	  margin-bottom: 0.5rem;
+	}
+
+	#modalTitle.success {
+	  color: #166534;
+	}
+
+	#modalTitle.error {
+	  color: #991b1b;
+	}
+
+	#modalMessage {
+	  margin-bottom: 1rem;
+	  color: #374151;
+	  white-space: pre-line;
+	}
+
+	#modalClose {
+	  width: 100%;
+	  background-color: #f3f4f6;
+	  color: #1f2937;
+	  padding: 0.5rem;
+	  border-radius: 0.5rem;
+	  border: none;
+	  cursor: pointer;
+	  font-size: 1rem;
+	}
+
+	#modalClose:hover {
+	  background-color: #e5e7eb;
+	}
+
+	/* ==============================================
+	   ZALO WIDGET STYLES
+	============================================== */
+
+	/* Responsive visibility */
+	@media (max-width: 480px) {
+	  .zalo_desktop {
+		display: none;
+	  }
+	}
+
+	@media (min-width: 481px) {
+	  .zalo_mobile {
+		display: none;
+	  }
+	}
+
+	/* Position and layout */
+	.jscroll-to-top {
+	  bottom: 100px;
+	}
+
+	.fcta-zalo-vi-tri-nut {
+	  position: fixed;
+	  bottom: 24px;
+	  right: 20px;
+	  z-index: 999;
+	}
+
+	/* Button styling */
+	.fcta-zalo-nen-nut,
+	div.fcta-zalo-mess {
+	  box-shadow: 0 1px 6px rgba(0, 0, 0, .06), 0 2px 32px rgba(0, 0, 0, .16);
+	}
+
+	.fcta-zalo-nen-nut {
+	  width: 50px;
+	  height: 50px;
+	  text-align: center;
+	  color: #fff;
+	  background: #0068ff;
+	  border-radius: 50%;
+	  position: relative;
+	}
+
+	.fcta-zalo-nen-nut::after,
+	.fcta-zalo-nen-nut::before {
+	  content: "";
+	  position: absolute;
+	  border: 1px solid #0068ff;
+	  background: #0068ff80;
+	  z-index: -1;
+	  left: -20px;
+	  right: -20px;
+	  top: -20px;
+	  bottom: -20px;
+	  border-radius: 50%;
+	  animation: zoom 1.9s linear infinite;
+	}
+
+	.fcta-zalo-nen-nut::after {
+	  animation-delay: .4s;
+	}
+
+	.fcta-zalo-ben-trong-nut,
+	.fcta-zalo-ben-trong-nut i {
+	  transition: all 1s;
+	}
+
+	.fcta-zalo-ben-trong-nut {
+	  position: absolute;
+	  text-align: center;
+	  width: 60%;
+	  height: 60%;
+	  left: 10px;
+	  bottom: 25px;
+	  line-height: 70px;
+	  font-size: 25px;
+	  opacity: 1;
+	}
+
+	.fcta-zalo-ben-trong-nut i {
+	  animation: lucidgenzalo 1s linear infinite;
+	}
+
+	.fcta-zalo-ben-trong-nut svg path {
+	  fill: #fff;
+	}
+
+	/* Hover effects */
+	.fcta-zalo-nen-nut:hover .fcta-zalo-ben-trong-nut,
+	.fcta-zalo-text {
+	  opacity: 0;
+	}
+
+	.fcta-zalo-nen-nut:hover i {
+	  transform: scale(.5);
+	  transition: all .5s ease-in;
+	}
+
+	/* Text styling */
+	.fcta-zalo-text a {
+	  text-decoration: none;
+	  color: #fff;
+	}
+
+	.fcta-zalo-text {
+	  position: absolute;
+	  top: 6px;
+	  text-transform: uppercase;
+	  font-size: 12px;
+	  font-weight: 700;
+	  transform: scaleX(-1);
+	  transition: all .5s;
+	  line-height: 1.5;
+	  font-family: Roboto;
+	}
+
+	.fcta-zalo-nen-nut:hover .fcta-zalo-text {
+	  transform: scaleX(1);
+	  opacity: 1;
+	}
+
+	/* Message box */
+	div.fcta-zalo-mess {
+	  position: fixed;
+	  bottom: 29px;
+	  right: 50px;
+	  z-index: 99;
+	  background: #fff;
+	  padding: 7px 30px 7px 15px;
+	  color: #0068ff;
+	  border-radius: 50px;
+	  font-weight: 700;
+	  font-size: 15px;
+	}
+
+	.fcta-zalo-mess span {
+	  color: #0068ff !important;
+	  font-family: Roboto;
+	  line-height: 1.5;
+	}
+
